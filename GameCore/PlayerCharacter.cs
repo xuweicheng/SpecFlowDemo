@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GameCore
 {
@@ -9,6 +11,16 @@ namespace GameCore
         public int Resistance { get; set; }
         public string Race { get; set; }
         public CharacterClass CharacterClass { get; set; }
+
+        public int MagicPower
+        {
+            get
+            {
+                return MagicItems.Sum(i => i.Power);
+            }
+        }
+
+        public IEnumerable<MagicItem> MagicItems { get; set; }
 
         public void Hit(int damage)
         {

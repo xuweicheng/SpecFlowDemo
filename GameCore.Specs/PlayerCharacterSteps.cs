@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -72,6 +73,20 @@ namespace GameCore.Specs
         public void WhenICastAHealSpell()
         {
             _player.CastHealSpell();
+        }
+
+        [When(@"I have the following magic items")]
+        public void WhenIHaveTheFollowingMagicItems(Table table)
+        {
+            IEnumerable<MagicItem> magicItems = table.CreateSet<MagicItem>();
+
+            _player.MagicItems = magicItems;
+        }
+
+        [Then(@"My magic power is (.*)")]
+        public void ThenMyMagicPowerIs(int expectedPower)
+        {
+            Assert.Equal(expectedPower, _player.MagicPower);
         }
 
     }

@@ -39,3 +39,11 @@ Scenario: Healer's heal spell
 	When I take  30 damage
 		And I cast a heal spell
 	Then My health should be 100
+
+Scenario: A player's magic power
+	When I have the following magic items
+	| name     | value | power |
+	| Ring     | 150   | 100   |
+	| Necklace | 200   | 200   |
+	| Helmet   | 300   | 400   |
+	Then My magic power is 700

@@ -204,6 +204,40 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("A player\'s magic power", SourceLine=42)]
+        public virtual void APlayersMagicPower()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A player\'s magic power", null, ((string[])(null)));
+#line 43
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "value",
+                        "power"});
+            table2.AddRow(new string[] {
+                        "Ring",
+                        "150",
+                        "100"});
+            table2.AddRow(new string[] {
+                        "Necklace",
+                        "200",
+                        "200"});
+            table2.AddRow(new string[] {
+                        "Helmet",
+                        "300",
+                        "400"});
+#line 44
+ testRunner.When("I have the following magic items", ((string)(null)), table2, "When ");
+#line 49
+ testRunner.Then("My magic power is 700", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {
