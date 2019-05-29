@@ -35,7 +35,9 @@ namespace GameCore.Specs
             //var race = table.Rows.First(x => x["attribute"] == "Race")["value"];
             //int resistance = int.Parse(table.Rows.First(x => x["attribute"] == "Resistance")["value"]);
 
-            var attributes = table.CreateInstance<PlayerAttributes>();
+            //var attributes = table.CreateInstance<PlayerAttributes>();
+
+            dynamic attributes = table.CreateDynamicInstance();
 
             _player.Race = attributes.Race;
             _player.Resistance = attributes.Resistance;
