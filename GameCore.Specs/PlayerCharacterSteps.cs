@@ -78,9 +78,21 @@ namespace GameCore.Specs
         [When(@"I have the following magic items")]
         public void WhenIHaveTheFollowingMagicItems(Table table)
         {
-            IEnumerable<MagicItem> magicItems = table.CreateSet<MagicItem>();
+            //IEnumerable<MagicItem> magicItems = table.CreateSet<MagicItem>();
 
-            _player.MagicItems = magicItems;
+            //_player.MagicItems = magicItems;
+
+            IEnumerable<dynamic> magicItems = table.CreateDynamicSet();
+
+            foreach (var item in magicItems)
+            {
+                _player.MagicItems.Add(new MagicItem
+                {
+                    Name = item.name,
+                    Value = item.value,
+                    Power = item.power
+                });
+            }
         }
 
         [Then(@"My magic power is (.*)")]

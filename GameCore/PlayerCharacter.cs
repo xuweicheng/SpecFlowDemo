@@ -20,7 +20,7 @@ namespace GameCore
             }
         }
 
-        public IEnumerable<MagicItem> MagicItems { get; set; }
+        public IList<MagicItem> MagicItems { get; set; } = new List<MagicItem>();
 
         public void Hit(int damage)
         {
